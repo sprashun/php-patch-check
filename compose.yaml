@@ -1,0 +1,20 @@
+name: php-patch-check
+
+services:
+  old:
+    image: php:8.3.36-apache
+    ports:
+      - "127.0.0.1:8083:80"
+    volumes:
+      - ./www:/var/www/html:ro
+    mem_limit: 512m
+    restart: "no"
+
+  new:
+    image: php:8.3.36-apache
+    ports:
+      - "127.0.0.1:8084:80"
+    volumes:
+      - ./www:/var/www/html:ro
+    mem_limit: 512m
+    restart: "no"
