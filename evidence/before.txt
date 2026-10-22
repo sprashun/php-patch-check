@@ -1,1 +1,25 @@
+PHP PATCH CHECK
+CVE-2026-109618 | CVE-2026-109619
+Checked at: 2026-10-22T17:55:22+00:00
 
+[old] http://127.0.0.1:8083/status.php
+NOT PATCHED
+Why: PHP 8.3.35 is older than 8.3.36; selected stopgap settings are incomplete.
+PHP: 8.3.35 | Mode: mod_php (apache2handler)
+  session.upload_progress.enabled = "1"
+  memory_limit = "128M"
+  post_max_size = "8M"
+  fatal_error_backtraces = N/A (PHP 8.5 only)
+
+[new] http://127.0.0.1:8084/status.php
+PATCHED
+Why: PHP 8.3.36 meets the fixed release 8.3.36 for its branch.
+PHP: 8.3.36 | Mode: mod_php (apache2handler)
+  session.upload_progress.enabled = "1"
+  memory_limit = "128M"
+  post_max_size = "8M"
+  fatal_error_backtraces = N/A (PHP 8.5 only)
+
+Scope: upstream version/configuration evidence for these two CVEs.
+Mitigated = selected observed settings only; an update is still required.
+Vendor backports, startup enforcement and other workers require separate verification.
